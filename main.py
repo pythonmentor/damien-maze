@@ -8,27 +8,39 @@ from FinalMaze import FinalMaze
 
 
 def main():
-
+    # -tc- En anglais,  c'est width et length
     widht, lenght = (
         input("Enter an int as widht\n"),
         input("Enter an int as lenght\n"),
     )
 
-    input_user = 0
+    input_user = (
+        0  # is_user_input_ok = True -tc- utilise True/False plutôt que 1/0
+    )
 
     while not input_user:
         try:
             widht = int(widht)
             lenght = int(lenght)
 
+            # -tc- Si tu veux que que width == length, pourquoi demander deux
+            # -tc- valeurs? Demande simplement la dimension du labyrinthe.
+
+            # -tc- Le raise ValueError n'est pas nécessaire. Réorganise ta
+            # -tc- condition
+            # -tc- if width == length:
+            # -tc-     input_user = True
             if widht != lenght:
                 raise ValueError
             else:
                 input_user = 1
         except ValueError:
+            # -tc- Your maze has to be a square. Width and length have to integers.
             print(
                 "You're maze as to be square. Widht and lenght as to be integer"
             )
+            # -tc- ou simpement
+            # -tc- width = length = input("Enter the dimension as an int: ")
             widht, lenght = (
                 input("Enter an int as widht:\n"),
                 input("Enter an int as lenght:\n"),
