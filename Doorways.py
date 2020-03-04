@@ -37,7 +37,7 @@ class Doorways:
 
         return (enter_ligne, enter_colonne), (exit_ligne, exit_colonne)
 
-    # -tc- Le plus simple à mon avis:
+    # -tc- Le plus simple à mon avis et moins essai-erreur:
     def create_enter_and_exit_simple(self):
         positions = set()
         for i in range(self.width):
